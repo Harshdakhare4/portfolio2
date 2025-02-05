@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Harsh Dakhare - Digital Creator, Full-Stack Developer, and Web Designer.">
+    <title>Harsh Dakhare - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #3B5998;
+            --secondary: #8B9DC3;
+            --accent: #D34836;
+            --light: #ECEFF1;
+            --highlight: #00BCD4;
+            --background: #F7F7F7;
+            --text: #212121;
+            --gradient-1: linear-gradient(135deg, #3B5998, #8B9DC3);
+            --gradient-2: linear-gradient(135deg, #D34836, #00BCD4);
+            --gradient-3: linear-gradient(45deg, rgba(59, 89, 152, 0.1), rgba(139, 157, 195, 0.1));
+        }
+
+        /* Global styles */
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--accent);
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: var(--primary);
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            animation: slideInDown 1s ease-out;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .nav-links a {
+            color: white;
+            font-weight: 600;
+        }
+
+        .nav-links a:hover {
+            color: var(--highlight);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: white;
+            font-size: 1.4rem;
+            transition: transform 0.6s ease, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(211, 72, 54, 0.3);
+            animation: bounce 2s infinite;
+        }
+
+        .logo-icon:hover {
+            transform: rotateY(180deg);
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: var(--gradient-2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 1px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: var(--gradient-1);
+            color: white;
+            animation: fadeIn 1.5s ease-in;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: slideInLeft 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            animation: slideInLeft 1s ease-out 0.2s;
+            opacity: 0;
+            animation-fill-mode: forwards;
+        }
+
+        .cta-button {
+            background: var(--highlight);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        .cta-button:hover {
+            background: var(--accent);
+        }
+
+        .section {
+            padding: 3rem 2rem;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            animation: slideInLeft 1s ease-in;
+            color: var(--primary);
+        }
+
+        .about p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            color: var(--text);
+        }
+
+        .projects {
+            background: var(--gradient-3);
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            animation: zoomIn 1s ease-out;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        form input, form textarea, form button {
+            display: block;
+            width: 100%;
+            margin: 0.5rem auto;
+            padding: 0.8rem;
+            border: 1px solid var(--light);
+            border-radius: 5px;
+            animation: zoomIn 1s ease-out;
+        }
+
+        form button {
+            background: var(--highlight);
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        form button:hover {
+            background: var(--accent);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            background: var(--primary);
+            color: white;
+            animation: fadeInUp 1s ease-in;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-link {
+            color: var(--highlight);
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            color: var(--accent);
+            background: rgba(255, 255, 255, 0.1);
+            text-decoration: none;
+        }
+
+        /* Animations */
+        @keyframes slideInDown {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar" aria-label="Main Navigation">
+        <div class="logo">
+            <div class="logo-icon" aria-label="Logo">HD</div>
+            <div class="logo-text">Harsh Dakhare</div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero" id="home">
+        <h1>Digital Creator</h1>
+        <p>Full-Stack Developer & Web Designer</p>
+        <button class="cta-button" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Start a Project</button>
+    </section>
+
+    <section class="section about" id="about">
+        <h2 class="section-title">About Me</h2>
+        <p>I'm a creative developer focused on building innovative digital experiences. With expertise in both front-end and back-end development, I create seamless, user-friendly applications that solve real-world problems. My passion lies in combining beautiful design with powerful functionality.</p>
+    </section>
+
+    <section class="section projects" id="projects">
+        <h2 class="section-title">Featured Work</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <h3>E-Commerce Platform</h3>
+                <p>A full-featured online shopping platform built with React and Node.js</p>
+            </div>
+            <div class="project-card">
+                <h3>Task Management App</h3>
+                <p>A collaborative project management tool with real-time updates</p>
+            </div>
+            <div class="project-card">
+                <h3>Portfolio Website</h3>
+                <p>A responsive portfolio showcasing creative work and projects</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section contact" id="contact">
+        <h2 class="section-title">Let's Collaborate</h2>
+        <form id="contactForm">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Tell me about your project" rows="5" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+        <div class="social-links">
+            <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="#" class="social-link" target="_blank" rel
+            ="noopener noreferrer">GitHub</a>
+            <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">Twitter</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Harsh Dakhare. All rights reserved.</p>
+        <div class="social-links">
+            <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+            <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">Terms of Service</a>
+        </div>
+    </footer>
+</body>
+</html>
